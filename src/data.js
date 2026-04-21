@@ -100,7 +100,6 @@ export const PAGE_LABELS = {
   profile: 'My Profile',
 };
 
-/** Main gate — path planner origin */
 export const MAP_ROUTE_START = { x: 215, y: 210 };
 
 export const MAP_BUILDING_CENTERS = {
@@ -118,7 +117,6 @@ export const MAP_BUILDING_CENTERS = {
   atm: { cx: 643, cy: 213 },
 };
 
-/** Path overlay polyline — applies gate apron row + westbound staging per traffic-office layout PDF. */
 export function mapRoutePathD(cx, cy) {
   const { x: sx, y: sy } = MAP_ROUTE_START;
   const apronY = sy + 11;

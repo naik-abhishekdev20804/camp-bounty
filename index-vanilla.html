@@ -30,7 +30,7 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;}
 
-/* ═══ TOP HEADER ═══ */
+
 .topbar{background:var(--ink);color:var(--white);padding:0 0;height:56px;display:flex;align-items:center;flex-shrink:0;position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,0.25);}
 .topbar-inner{max-width:100%;width:100%;display:flex;align-items:center;padding:0 24px;gap:16px;}
 .logo{font-family:'DM Serif Display',serif;font-size:1.4rem;letter-spacing:0.2px;color:var(--white);display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0;}
@@ -55,7 +55,7 @@ body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);mi
 .tb-avatar{width:28px;height:28px;border-radius:6px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:var(--ink);}
 .tb-uname{font-size:0.8rem;font-weight:600;color:var(--white);}
 
-/* ═══ SECONDARY NAV ═══ */
+
 .subnav{background:var(--ink2);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;padding:0 24px;height:44px;flex-shrink:0;position:sticky;top:56px;z-index:190;overflow-x:auto;scrollbar-width:none;}
 .subnav::-webkit-scrollbar{display:none;}
 .subnav-link{background:none;border:none;color:rgba(255,255,255,0.5);font-family:'Manrope',sans-serif;font-size:0.82rem;font-weight:600;padding:0 16px;height:44px;cursor:pointer;border-bottom:2.5px solid transparent;transition:all 0.2s;white-space:nowrap;display:flex;align-items:center;gap:6px;letter-spacing:0.2px;}
@@ -63,10 +63,10 @@ body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);mi
 .subnav-link.active{color:var(--gold2);border-bottom-color:var(--gold2);}
 .subnav-divider{width:1px;height:20px;background:rgba(255,255,255,0.08);margin:0 4px;flex-shrink:0;}
 
-/* ═══ LAYOUT ═══ */
+
 .app-body{display:flex;flex:1;overflow:hidden;max-height:calc(100vh - 100px);}
 
-/* ═══ SIDEBAR ═══ */
+
 .sidebar{width:230px;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;scrollbar-width:none;}
 .sidebar::-webkit-scrollbar{display:none;}
 .sidebar-section{padding:16px 12px 8px;}
@@ -79,12 +79,12 @@ body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);mi
 .sidebar-btn.active .sb-badge{background:var(--gold);color:var(--ink);}
 .sidebar-divider{height:1px;background:var(--border);margin:8px 12px;}
 
-/* ═══ MAIN CONTENT ═══ */
+
 .main-content{flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--fog) transparent;}
 .main-content::-webkit-scrollbar{width:5px;}
 .main-content::-webkit-scrollbar-thumb{background:var(--fog);}
 
-/* ═══ BREADCRUMB ═══ */
+
 .breadcrumb-bar{background:var(--white);border-bottom:1px solid var(--border);padding:10px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:0.78rem;flex-shrink:0;position:sticky;top:0;z-index:10;}
 .bc-back{background:var(--snow);border:1.5px solid var(--border2);color:var(--slate);font-family:'Manrope',sans-serif;font-size:0.78rem;font-weight:700;padding:6px 14px;border-radius:8px;cursor:pointer;transition:all 0.18s;flex-shrink:0;}
 .bc-back:hover{border-color:var(--ink);color:var(--ink);background:var(--white);}
@@ -95,18 +95,18 @@ body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);mi
 .bc.current{color:var(--ink);font-weight:700;cursor:default;}
 .bc-arrow{color:var(--fog);font-size:0.7rem;}
 
-/* ═══ PAGE WRAPPER ═══ */
+
 .page-wrap{padding:28px 28px 48px;}
 .page{display:none;}
 .page.active{display:block;}
 
-/* ═══ PAGE HEADER ═══ */
+
 .page-hd{margin-bottom:28px;}
 .page-hd h1{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--ink);margin-bottom:6px;}
 .page-hd p{font-size:0.88rem;color:var(--mist);}
 .page-hd-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 
-/* ═══ CARDS & GRIDS ═══ */
+
 .card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px;}
 .card-sm{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
@@ -120,7 +120,7 @@ body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);mi
 .stat-change.down{color:var(--red);}
 .stat-icon{font-size:1.6rem;margin-bottom:4px;}
 
-/* ═══ TABS ═══ */
+
 .tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:22px;gap:0;}
 .tab{background:none;border:none;font-family:'Manrope',sans-serif;font-size:0.84rem;font-weight:600;color:var(--mist);padding:10px 18px;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all 0.18s;white-space:nowrap;}
 .tab:hover{color:var(--slate);}
@@ -128,7 +128,7 @@ body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);mi
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
 
-/* ═══ BUTTONS ═══ */
+
 .btn{padding:9px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-size:0.84rem;font-weight:700;cursor:pointer;border:none;transition:all 0.18s;display:inline-flex;align-items:center;gap:6px;}
 .btn-primary{background:var(--ink);color:var(--white);}
 .btn-primary:hover{background:var(--ink2);transform:translateY(-1px);box-shadow:var(--shadow);}
@@ -141,12 +141,12 @@ body{font-family:'Manrope',sans-serif;background:var(--snow);color:var(--ink);mi
 .btn-teal{background:var(--teal);color:var(--white);}
 .btn-teal:hover{background:var(--teal2);}
 
-/* Dashboard — campus map CTA (slightly larger + highlighted) */
+
 .btn-dash-map{padding:10px 18px;font-size:0.88rem;font-weight:700;border-radius:8px;border:2px solid var(--gold);background:linear-gradient(180deg,#FFF9ED 0%,#FEF0C8 100%);color:var(--ink);box-shadow:0 2px 10px rgba(201,149,42,0.28);cursor:pointer;font-family:'Manrope',sans-serif;transition:all 0.18s;display:inline-flex;align-items:center;gap:6px;}
 .btn-dash-map:hover{background:var(--gold2);border-color:var(--gold2);box-shadow:0 4px 14px rgba(201,149,42,0.35);transform:translateY(-1px);}
 .btn-dash-map:focus{outline:2px solid var(--gold);outline-offset:2px;}
 
-/* ═══ TABLE ═══ */
+
 .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);}
 table{width:100%;border-collapse:collapse;background:var(--white);}
 thead th{background:var(--snow);padding:11px 16px;text-align:left;font-size:0.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--mist);border-bottom:1px solid var(--border);}
@@ -161,7 +161,7 @@ tbody tr:hover{background:var(--snow);}
 .chip-blue{background:#EEF4FF;color:#2D5BE3;}
 .chip-mist{background:var(--snow);color:var(--slate);}
 
-/* ═══ FORM ═══ */
+
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
 .form-group{display:flex;flex-direction:column;gap:5px;}
 .form-group.full{grid-column:1/-1;}
@@ -170,18 +170,18 @@ tbody tr:hover{background:var(--snow);}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:var(--white);}
 .form-group textarea{resize:vertical;min-height:80px;}
 
-/* ═══ PROGRESS ═══ */
+
 .progress-bar{height:6px;background:var(--snow);border-radius:3px;overflow:hidden;}
 .progress-fill{height:100%;border-radius:3px;transition:width 0.4s;}
 
-/* ═══ ALERT ═══ */
+
 .alert{padding:12px 16px;border-radius:10px;font-size:0.84rem;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px;}
 .alert-info{background:#EEF4FF;border:1px solid #C5D7FF;color:#2D5BE3;}
 .alert-warn{background:#FEF6E7;border:1px solid #F2D48A;color:#8B5E08;}
 .alert-success{background:#E8F5EC;border:1px solid #A5D8B5;color:var(--green);}
 .alert-danger{background:#FDF0F0;border:1px solid #F5BBBB;color:var(--red);}
 
-/* ═══ CAMPUS MAP ═══ */
+
 .map-wrap{background:var(--ink2);border-radius:14px;overflow:hidden;position:relative;border:1px solid var(--border);}
 .map-svg-container{width:100%;height:440px;}
 .map-controls-bar{position:absolute;top:14px;right:14px;display:flex;flex-direction:column;gap:6px;}
@@ -197,7 +197,7 @@ tbody tr:hover{background:var(--snow);}
 .map-search-btn{background:var(--gold);border:none;border-radius:8px;padding:8px 14px;font-family:'Manrope',sans-serif;font-size:0.8rem;font-weight:700;cursor:pointer;color:var(--ink);box-shadow:var(--shadow);}
 .building-tooltip{position:absolute;background:var(--ink);color:var(--white);padding:6px 12px;border-radius:8px;font-size:0.78rem;font-weight:600;pointer-events:none;display:none;z-index:10;white-space:nowrap;}
 
-/* ═══ TIMETABLE ═══ */
+
 .timetable{display:grid;grid-template-columns:60px repeat(5,1fr);gap:2px;font-size:0.78rem;}
 .tt-header{background:var(--ink);color:var(--white);padding:8px;border-radius:6px;text-align:center;font-weight:700;font-size:0.72rem;}
 .tt-time{background:var(--snow);padding:8px;border-radius:6px;text-align:center;color:var(--mist);font-weight:600;display:flex;align-items:center;justify-content:center;}
@@ -211,7 +211,7 @@ tbody tr:hover{background:var(--snow);}
 .tt-lab{background:#F0F4FF;color:#5B3FD4;border-left:3px solid #5B3FD4;}
 .tt-sub{font-size:0.68rem;opacity:0.75;margin-top:2px;}
 
-/* ═══ NOTIFICATION PANEL ═══ */
+
 .notif-panel{position:fixed;top:56px;right:0;width:320px;height:calc(100vh - 56px);background:var(--white);border-left:1px solid var(--border);z-index:150;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-4px 0 24px rgba(0,0,0,0.1);}
 .notif-panel.open{transform:translateX(0);}
 .notif-hd{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--snow);}
@@ -224,7 +224,7 @@ tbody tr:hover{background:var(--snow);}
 .ni-body{font-size:0.78rem;color:var(--mist);line-height:1.5;}
 .ni-time{font-size:0.7rem;color:var(--fog);margin-top:4px;}
 
-/* ═══ DROPDOWN MENU ═══ */
+
 .dropdown{position:relative;}
 .dropdown-menu{position:absolute;top:calc(100%+6px);right:0;background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow-lg);z-index:250;min-width:200px;padding:6px;display:none;}
 .dropdown-menu.open{display:block;}
@@ -233,7 +233,7 @@ tbody tr:hover{background:var(--snow);}
 .dd-item.danger{color:var(--red);}
 .dd-divider{height:1px;background:var(--border);margin:4px 0;}
 
-/* ═══ MODAL ═══ */
+
 .modal-bg{position:fixed;inset:0;background:rgba(15,25,35,0.5);z-index:400;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
 .modal-bg.open{display:flex;}
 .modal{background:var(--white);border-radius:18px;padding:28px;max-width:460px;width:90%;box-shadow:var(--shadow-lg);animation:mdin 0.2s ease;}
@@ -242,13 +242,13 @@ tbody tr:hover{background:var(--snow);}
 .modal p{font-size:0.86rem;color:var(--mist);line-height:1.65;margin-bottom:20px;}
 .modal-btns{display:flex;gap:10px;justify-content:flex-end;}
 
-/* ═══ TOAST ═══ */
+
 .toast-stack{position:fixed;bottom:24px;right:24px;z-index:500;display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
 .toast{background:var(--ink);color:var(--white);padding:11px 18px;border-radius:10px;font-size:0.83rem;font-weight:500;box-shadow:var(--shadow-lg);animation:tslide 0.25s ease,tfade 0.3s ease 2.3s forwards;max-width:300px;}
 @keyframes tslide{from{opacity:0;transform:translateX(20px);}to{opacity:1;transform:translateX(0);}}
 @keyframes tfade{from{opacity:1;}to{opacity:0;transform:translateX(10px);}}
 
-/* ══ MISC ═══ */
+
 .avatar-sm{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;color:var(--white);flex-shrink:0;}
 .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:700;letter-spacing:0.3px;}
 .divider{height:1px;background:var(--border);margin:20px 0;}
@@ -266,7 +266,7 @@ tbody tr:hover{background:var(--snow);}
 </head>
 <body>
 
-<!-- ═══════════════ TOP BAR ═══════════════ -->
+
 <div class="topbar">
   <div class="topbar-inner">
     <div class="logo" onclick="navigate('dashboard')">
@@ -284,7 +284,7 @@ tbody tr:hover{background:var(--snow);}
       <div class="tb-icon" onclick="toggleNotif()" title="Notifications">
         🔔 <span class="tb-badge" id="notifBadge">4</span>
       </div>
-      <!-- USER DROPDOWN -->
+      
       <div class="dropdown">
         <div class="tb-user" onclick="toggleUserMenu()" id="userMenuBtn">
           <div class="tb-avatar">RK</div>
@@ -303,7 +303,7 @@ tbody tr:hover{background:var(--snow);}
   </div>
 </div>
 
-<!-- ═══════════════ SECONDARY NAV ═══════════════ -->
+
 <div class="subnav" id="subnav">
   <button class="subnav-link active" id="sn-dashboard"   onclick="navigate('dashboard',this)">🏠 Dashboard</button>
   <button class="subnav-link"        id="sn-campus"      onclick="navigate('campus',this)">🗺️ Campus Map</button>
@@ -316,10 +316,10 @@ tbody tr:hover{background:var(--snow);}
   <button class="subnav-link"        id="sn-profile"     onclick="navigate('profile',this)">👤 Profile</button>
 </div>
 
-<!-- ═══════════════ APP BODY ═══════════════ -->
+
 <div class="app-body">
 
-  <!-- SIDEBAR -->
+  
   <div class="sidebar" id="sidebar">
     <div class="sidebar-section">
       <div class="sidebar-section-title">Main</div>
@@ -338,10 +338,10 @@ tbody tr:hover{background:var(--snow);}
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  
   <div class="main-content" id="mainContent">
 
-    <!-- BREADCRUMB -->
+    
     <div class="breadcrumb-bar is-dashboard" id="breadcrumbBar">
       <button type="button" class="bc-back" onclick="navigate('profile')" title="Go to My Profile">← Back</button>
       <div class="breadcrumb-inner" id="breadcrumbInner"><span class="bc current">🏠 Home</span></div>
@@ -349,9 +349,7 @@ tbody tr:hover{background:var(--snow);}
 
     <div class="page-wrap">
 
-      <!-- ══════════════════════════
-           DASHBOARD PAGE
-      ══════════════════════════ -->
+      
       <div class="page active" id="page-dashboard">
         <div class="page-hd page-hd-row">
           <div>
@@ -364,7 +362,7 @@ tbody tr:hover{background:var(--snow);}
           </div>
         </div>
 
-        <!-- STAT CARDS -->
+        
         <div class="grid-4">
           <div class="stat-card"><div class="stat-icon">📚</div><div class="stat-val">6</div><div class="stat-label">Active Courses</div><div class="stat-change up">↑ Sem 4</div></div>
           <div class="stat-card"><div class="stat-icon">📊</div><div class="stat-val">8.4</div><div class="stat-label">Current CGPA</div><div class="stat-change up">↑ 0.2 pts</div></div>
@@ -372,24 +370,24 @@ tbody tr:hover{background:var(--snow);}
           <div class="stat-card"><div class="stat-icon">💳</div><div class="stat-val">₹12K</div><div class="stat-label">Fees Due</div><div class="stat-change down">↓ Apr 30</div></div>
         </div>
 
-        <!-- ALERTS -->
+        
         <div class="alert alert-warn">⚠️ <div><strong>Attendance Warning:</strong> Your attendance in Data Structures (CS401) is at 74%. Minimum required is 75%. Please attend upcoming classes.</div></div>
         <div class="alert alert-info">📋 <div><strong>Exam Schedule Released:</strong> End-semester exams begin May 12. <span style="text-decoration:underline;cursor:pointer;font-weight:600" onclick="navigate('results')">View schedule →</span></div></div>
 
         <div class="grid-2">
-          <!-- TODAY'S CLASSES -->
+          
           <div class="card">
             <div class="section-title">Today's Schedule</div>
             <div id="todayClasses"></div>
           </div>
-          <!-- RECENT NOTIFICATIONS -->
+          
           <div class="card">
             <div class="section-title">Recent Activity</div>
             <div id="recentActivity"></div>
           </div>
         </div>
 
-        <!-- QUICK LINKS -->
+        
         <div class="section-title">Quick Access</div>
         <div class="grid-4">
           <div class="card-sm" style="cursor:pointer;text-align:center" onclick="navigate('courses')"><div style="font-size:1.8rem;margin-bottom:6px">📚</div><div style="font-size:0.82rem;font-weight:700">Courses</div></div>
@@ -399,9 +397,7 @@ tbody tr:hover{background:var(--snow);}
         </div>
       </div>
 
-      <!-- ══════════════════════════
-           COURSES PAGE
-      ══════════════════════════ -->
+      
       <div class="page" id="page-courses">
         <div class="page-hd page-hd-row">
           <div><h1>My Courses</h1><p>Semester 4 — 6 enrolled subjects</p></div>
@@ -421,9 +417,7 @@ tbody tr:hover{background:var(--snow);}
         <div class="tab-panel" id="course-elective"><div id="courseElective"></div></div>
       </div>
 
-      <!-- ══════════════════════════
-           TIMETABLE PAGE
-      ══════════════════════════ -->
+      
       <div class="page" id="page-timetable">
         <div class="page-hd page-hd-row">
           <div><h1>Weekly Timetable</h1><p>Semester 4 — Academic Year 2024–25</p></div>
@@ -467,9 +461,7 @@ tbody tr:hover{background:var(--snow);}
         </div>
       </div>
 
-      <!-- ══════════════════════════
-           RESULTS PAGE
-      ══════════════════════════ -->
+      
       <div class="page" id="page-results">
         <div class="page-hd page-hd-row">
           <div><h1>Results & Grades</h1><p>Academic performance overview</p></div>
@@ -504,9 +496,7 @@ tbody tr:hover{background:var(--snow);}
         </div>
       </div>
 
-      <!-- ══════════════════════════
-           LIBRARY PAGE
-      ══════════════════════════ -->
+      
       <div class="page" id="page-library">
         <div class="page-hd page-hd-row">
           <div><h1>Library</h1><p>Browse, borrow and renew books</p></div>
@@ -525,9 +515,7 @@ tbody tr:hover{background:var(--snow);}
         <div class="tab-panel" id="lib-reserved"><div class="empty-state"><div class="big">📚</div><p>No books reserved currently.</p><button class="btn btn-gold" style="margin-top:12px" onclick="toast('Opening book catalogue...')">Browse Catalogue</button></div></div>
       </div>
 
-      <!-- ══════════════════════════
-           CAMPUS MAP PAGE
-      ══════════════════════════ -->
+      
       <div class="page" id="page-campus">
         <div class="page-hd page-hd-row">
           <div><h1>Campus Map</h1><p>Explore SVIT campus buildings and facilities</p></div>
@@ -558,14 +546,14 @@ tbody tr:hover{background:var(--snow);}
           </div>
           <div class="map-svg-container">
             <svg id="campusMapSvg" viewBox="0 0 880 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-              <!-- Ground -->
+              
               <rect width="880" height="450" fill="#1C2E1C"/>
-              <!-- Paths/Roads -->
+              
               <rect x="0"   y="195" width="880" height="30" fill="#2A3A2A"/>
               <rect x="200" y="0"   width="30"  height="450" fill="#2A3A2A"/>
               <rect x="600" y="0"   width="30"  height="450" fill="#2A3A2A"/>
               <rect x="0"   y="375" width="880" height="22" fill="#2A3A2A"/>
-              <!-- Inner paths / walkways (dashed) -->
+              
               <g fill="none" stroke="#4A604A" stroke-width="3" stroke-dasharray="7,5" stroke-linecap="round" opacity="0.85">
                 <path d="M 35 125 H 845"/>
                 <path d="M 215 125 V 210"/>
@@ -577,21 +565,21 @@ tbody tr:hover{background:var(--snow);}
                 <path d="M 48 388 H 820"/>
                 <path d="M 320 225 H 520"/>
               </g>
-              <!-- Grass -->
+              
               <rect x="230" y="0"   width="370" height="195" fill="#1E3A1E" rx="0"/>
               <rect x="230" y="225" width="370" height="225" fill="#1E3A1E" rx="0"/>
               <rect x="0"   y="0"   width="200" height="195" fill="#182E18"/>
               <rect x="0"   y="225" width="200" height="225" fill="#182E18"/>
               <rect x="630" y="0"   width="250" height="195" fill="#182E18"/>
               <rect x="630" y="225" width="250" height="225" fill="#182E18"/>
-              <!-- Trees -->
+              
               <g fill="#2D5A2D">
                 <circle cx="260" cy="50"  r="18"/><circle cx="310" cy="80"  r="14"/><circle cx="560" cy="50"  r="18"/><circle cx="510" cy="80"  r="14"/>
                 <circle cx="260" cy="370" r="16"/><circle cx="310" cy="340" r="12"/><circle cx="560" cy="370" r="16"/><circle cx="510" cy="340" r="12"/>
                 <circle cx="50"  cy="100" r="14"/><circle cx="120" cy="60"  r="16"/><circle cx="150" cy="300" r="14"/><circle cx="70"  cy="330" r="12"/>
                 <circle cx="680" cy="100" r="14"/><circle cx="750" cy="60"  r="16"/><circle cx="800" cy="300" r="14"/><circle cx="700" cy="340" r="12"/>
               </g>
-              <!-- Reference walking network (above grass — straight L-links from main spine; compare to gold in-app route) -->
+              
               <g id="mapRefNetwork" pointer-events="none" opacity="0.95">
                 <line x1="38" y1="210" x2="852" y2="210" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
                 <line x1="100" y1="210" x2="100" y2="88" stroke="rgba(255,255,255,0.38)" stroke-width="2" stroke-dasharray="5,4" stroke-linecap="round"/>
@@ -616,63 +604,63 @@ tbody tr:hover{background:var(--snow);}
                 <path d="M 440 388 V 411" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-dasharray="5,6" fill="none" stroke-linecap="round"/>
                 <text x="518" y="204" fill="rgba(255,255,255,0.55)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle">MAIN SPINE — straight line from gate</text>
               </g>
-              <!-- Buildings -->
-              <!-- Main Block -->
+              
+              
               <rect id="bld-main" x="20"  y="20"  width="160" height="155" rx="6" fill="#3A5A8C" stroke="#5A7FAC" stroke-width="1.5" class="map-building" onclick="highlightBuilding('main')" style="cursor:pointer"/>
               <text x="100" y="90"  text-anchor="middle" fill="white" font-size="11" font-family="Manrope" font-weight="700" pointer-events="none">MAIN BLOCK</text>
               <text x="100" y="108" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Manrope" pointer-events="none">Admin & Principal</text>
-              <!-- CS Block -->
+              
               <rect id="bld-cs" x="330" y="20" width="220" height="155" rx="6" fill="#1A5C4A" stroke="#2A8C6C" stroke-width="1.5" class="map-building" onclick="highlightBuilding('cs')" style="cursor:pointer"/>
               <text x="440" y="90"  text-anchor="middle" fill="white" font-size="11" font-family="Manrope" font-weight="700" pointer-events="none">CS DEPARTMENT</text>
               <text x="440" y="108" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Manrope" pointer-events="none">Rooms 201–210, Labs</text>
-              <!-- Library -->
+              
               <rect id="bld-lib" x="640" y="20" width="220" height="155" rx="6" fill="#6B3A8C" stroke="#9B5ABC" stroke-width="1.5" class="map-building" onclick="highlightBuilding('lib')" style="cursor:pointer"/>
-              <!-- Auditorium (between entry road & CS) -->
+              
               <rect id="bld-aud" x="232" y="38" width="86" height="125" rx="6" fill="#4A6B9C" stroke="#6B8FCC" stroke-width="1.5" class="map-building" onclick="highlightBuilding('aud')" style="cursor:pointer"/>
               <text x="275" y="98"  text-anchor="middle" fill="white" font-size="10" font-family="Manrope" font-weight="700" pointer-events="none">AUDITORIUM</text>
               <text x="275" y="114" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-family="Manrope" pointer-events="none">800 seats</text>
-              <!-- Workshop / ME -->
+              
               <rect id="bld-workshop" x="552" y="38" width="78" height="125" rx="6" fill="#2A5A6A" stroke="#3A7A8C" stroke-width="1.5" class="map-building" onclick="highlightBuilding('workshop')" style="cursor:pointer"/>
               <text x="591" y="95"  text-anchor="middle" fill="white" font-size="9" font-family="Manrope" font-weight="700" pointer-events="none">WORKSHOP</text>
               <text x="591" y="110" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-family="Manrope" pointer-events="none">ME · Fab Lab</text>
               <text x="750" y="90"  text-anchor="middle" fill="white" font-size="11" font-family="Manrope" font-weight="700" pointer-events="none">LIBRARY</text>
               <text x="750" y="108" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Manrope" pointer-events="none">Central Library & Reading</text>
-              <!-- Canteen -->
-              <!-- Health strip (under Main, above main road) -->
+              
+              
               <rect id="bld-health" x="38" y="178" width="124" height="32" rx="5" fill="#2A6B5A" stroke="#3A9B7A" stroke-width="1.5" class="map-building" onclick="highlightBuilding('health')" style="cursor:pointer"/>
               <text x="100" y="198" text-anchor="middle" fill="white" font-size="9" font-family="Manrope" font-weight="700" pointer-events="none">HEALTH CENTER</text>
-              <!-- Bus bay (near gate) -->
+              
               <rect id="bld-bus" x="238" y="218" width="44" height="38" rx="5" fill="#4A4A5E" stroke="#6A6A82" stroke-width="1.5" class="map-building" onclick="highlightBuilding('bus')" style="cursor:pointer"/>
               <text x="260" y="242" text-anchor="middle" fill="white" font-size="8" font-family="Manrope" font-weight="700" pointer-events="none">BUS</text>
-              <!-- ATM / mini services (east spine) -->
+              
               <rect id="bld-atm" x="626" y="198" width="34" height="30" rx="4" fill="#3D4A5E" stroke="#5A6A82" stroke-width="1.5" class="map-building" onclick="highlightBuilding('atm')" style="cursor:pointer"/>
               <text x="643" y="217" text-anchor="middle" fill="white" font-size="7" font-family="Manrope" font-weight="700" pointer-events="none">ATM</text>
               <rect id="bld-canteen" x="20" y="240" width="160" height="120" rx="6" fill="#8C5A1A" stroke="#BC8A2A" stroke-width="1.5" class="map-building" onclick="highlightBuilding('canteen')" style="cursor:pointer"/>
               <text x="100" y="300" text-anchor="middle" fill="white" font-size="11" font-family="Manrope" font-weight="700" pointer-events="none">CANTEEN</text>
               <text x="100" y="316" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Manrope" pointer-events="none">Cafeteria & Food Court</text>
-              <!-- Sports Ground -->
+              
               <rect id="bld-ground" x="280" y="250" width="280" height="120" rx="6" fill="#1A4A1A" stroke="#2A7A2A" stroke-width="1.5" class="map-building" onclick="highlightBuilding('ground')" style="cursor:pointer"/>
               <ellipse cx="420" cy="315" rx="90" ry="50" fill="none" stroke="#2A7A2A" stroke-width="2" stroke-dasharray="6,3"/>
               <text x="420" y="305" text-anchor="middle" fill="white" font-size="11" font-family="Manrope" font-weight="700" pointer-events="none">SPORTS GROUND</text>
               <text x="420" y="322" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Manrope" pointer-events="none">Cricket · Football · Basketball</text>
-              <!-- Hostel -->
+              
               <rect id="bld-hostel" x="640" y="240" width="220" height="130" rx="6" fill="#8C2A2A" stroke="#BC4A4A" stroke-width="1.5" class="map-building" onclick="highlightBuilding('hostel')" style="cursor:pointer"/>
-              <!-- Visitor parking -->
+              
               <rect id="bld-parking" x="300" y="382" width="280" height="58" rx="6" fill="#3A3A4A" stroke="#5A5A6A" stroke-width="1.5" class="map-building" onclick="highlightBuilding('parking')" style="cursor:pointer"/>
               <text x="440" y="408" text-anchor="middle" fill="white" font-size="10" font-family="Manrope" font-weight="700" pointer-events="none">PARKING</text>
               <text x="440" y="424" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8" font-family="Manrope" pointer-events="none">P1 · P2 · EV bays</text>
               <text x="750" y="310" text-anchor="middle" fill="white" font-size="11" font-family="Manrope" font-weight="700" pointer-events="none">HOSTEL</text>
               <text x="750" y="328" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Manrope" pointer-events="none">Boys & Girls Blocks</text>
-              <!-- YOU ARE HERE dot -->
+              
               <circle cx="440" cy="210" r="8" fill="#FFD700" stroke="white" stroke-width="2">
                 <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
                 <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
               </circle>
               <text x="440" y="196" text-anchor="middle" fill="#FFD700" font-size="9" font-family="Manrope" font-weight="700">You are here</text>
-              <!-- Gate (route starts from here — center ~215,210) -->
+              
               <rect x="200" y="188" width="30" height="44" fill="#555" rx="2"/>
               <text x="215" y="215" text-anchor="middle" fill="white" font-size="8" font-family="Manrope" font-weight="700">GATE</text>
-              <!-- Route: main gate → along main road → to destination (drawn on top of buildings for visibility) -->
+              
               <g id="mapRouteGroup" pointer-events="none" style="display:none">
                 <path id="mapRouteGlow" fill="none" stroke="#F2B93B" stroke-width="14" stroke-opacity="0.22" stroke-linecap="round" stroke-linejoin="round"/>
                 <path id="mapRouteLine" fill="none" stroke="#FFD54A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 8">
@@ -703,9 +691,7 @@ tbody tr:hover{background:var(--snow);}
         <div style="margin-top:20px" id="buildingInfoPanel"></div>
       </div>
 
-      <!-- ══════════════════════════
-           FEES PAGE
-      ══════════════════════════ -->
+      
       <div class="page" id="page-fees">
         <div class="page-hd"><h1>Fees & Payments</h1><p>Manage your fee payments and dues</p></div>
         <div class="alert alert-danger">⚠️ Semester 4 fees of <strong>₹12,000</strong> are due by April 30, 2025. Late fine: ₹500/day after due date.</div>
@@ -745,9 +731,7 @@ tbody tr:hover{background:var(--snow);}
         <tbody id="payHistoryTable"></tbody></table></div>
       </div>
 
-      <!-- ══════════════════════════
-           PROFILE PAGE
-      ══════════════════════════ -->
+      
       <div class="page" id="page-profile">
         <div class="page-hd"><h1>My Profile</h1><p>Manage your personal and academic information</p></div>
         <div class="tabs" id="profileTabs">
@@ -802,11 +786,11 @@ tbody tr:hover{background:var(--snow);}
         </div>
       </div>
 
-    </div><!-- /page-wrap -->
-  </div><!-- /main-content -->
-</div><!-- /app-body -->
+    </div>
+  </div>
+</div>
 
-<!-- NOTIFICATION PANEL -->
+
 <div class="notif-panel" id="notifPanel">
   <div class="notif-hd">
     <h3>Notifications</h3>
@@ -815,7 +799,7 @@ tbody tr:hover{background:var(--snow);}
   <div class="notif-list" id="notifList"></div>
 </div>
 
-<!-- MODAL -->
+
 <div class="modal-bg" id="modalBg">
   <div class="modal">
     <h3 id="modalTitle"></h3>
@@ -829,13 +813,11 @@ tbody tr:hover{background:var(--snow);}
 
 <div class="toast-stack" id="toastStack"></div>
 
-<!-- ═══════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════ -->
+
 <script>
-// ═══════════════════════════
-//  DATA
-// ═══════════════════════════
+
+
+
 const COURSES = [
   {code:'CS401', name:'Data Structures & Algorithms', faculty:'Dr. Anand Rao',    credits:4, type:'theory',   attendance:74, color:'#EEF4FF', border:'#2D5BE3'},
   {code:'MA401', name:'Engineering Mathematics IV',   faculty:'Dr. Meena Sharma', credits:4, type:'theory',   attendance:88, color:'#E8F5EC', border:'#1E8449'},
@@ -864,7 +846,7 @@ const NOTIFICATIONS = [
 ];
 
 const TIMETABLE_DATA = [
-  // [period, Mon, Tue, Wed, Thu, Fri]
+  
   ['9–10',  'CS401','MA401','CS401','MA401','PH401'],
   ['10–11', 'MA401','CS401','PH401','CS401','MA401'],
   ['11–12', 'PH401','EN401','MA401','CS403','CS401'],
@@ -928,20 +910,20 @@ const SEARCH_DATA = [
   {icon:'🏧',label:'ATM Campus',                  cat:'Building',page:'campus'},
 ];
 
-// ═══════════════════════════
-//  STATE
-// ═══════════════════════════
+
+
+
 let currentPage = 'dashboard';
-let breadcrumbTrail = []; // stores history
+let breadcrumbTrail = []; 
 let mapScale = 1;
 let notifOpen = false;
 let unreadCount = 4;
 
-// ════════════════════════════════════════════════════
-//  NAVIGATION — Core function
-// ════════════════════════════════════════════════════
+
+
+
 function navigate(page, subnavBtn, sidebarBtn) {
-  // Hide all pages
+  
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
 
@@ -964,15 +946,15 @@ function navigate(page, subnavBtn, sidebarBtn) {
   if (notifOpen) toggleNotif();
 }
 
-// ════════════════════════════════════════════════════
-//  BREADCRUMB
-//  ❌ BUG N2 — Back navigation is broken
-//  Clicking a middle breadcrumb crumb calls navigate() which
-//  APPENDS another crumb instead of trimming the trail back.
-//  So: Home → Courses → Results → clicking "Courses" in breadcrumb
-//  results in: Home › Courses › Results › Courses  (grows, not trims)
-//  Also: breadcrumb trail is stored in an array but never sliced on back-click.
-// ════════════════════════════════════════════════════
+
+
+
+
+
+
+
+
+
 const PAGE_LABELS = {dashboard:'Dashboard',courses:'Courses',timetable:'Timetable',results:'Results & Grades',library:'Library',campus:'Campus Map',fees:'Fees & Payments',profile:'My Profile'};
 
 function updateBreadcrumb(page) {
@@ -987,7 +969,7 @@ function updateBreadcrumb(page) {
     return;
   }
 
-  // N2: Always appends — never trims when revisiting an earlier crumb
+  
   breadcrumbTrail.push(page);
 
   let html = `<span class="bc" onclick="navigate('dashboard')">🏠 Home</span>`;
@@ -997,16 +979,16 @@ function updateBreadcrumb(page) {
     if (i === breadcrumbTrail.length - 1) {
       html += `<span class="bc current">${PAGE_LABELS[p] || p}</span>`;
     } else {
-      // N2: Clicking an earlier crumb still appends via navigate → duplicate crumbs
+      
       html += `<span class="bc" onclick="navigate('${p}')">${PAGE_LABELS[p] || p}</span>`;
     }
   });
   inner.innerHTML = html;
 }
 
-// ════════════════════════════════════════════════════
-//  TAB SWITCHING (scoped to the current .page so tabs don’t leak across pages)
-// ════════════════════════════════════════════════════
+
+
+
 function switchTab(tabGroupId, panelId, btn) {
   const pageEl = btn.closest('.page');
   if (!pageEl) return;
@@ -1017,22 +999,22 @@ function switchTab(tabGroupId, panelId, btn) {
   if (panel) panel.classList.add('active');
 }
 
-// ════════════════════════════════════════════════════
-//  PROFILE SAVE
-//  ❌ BUG N1 (Data integrity / UX) — “Save” lies: success toast but no update
-//  saveProfile() does not read inputs, does not update #profDisplayName,
-//  does not persist (no localStorage / no API). Hunters should wire real save.
-// ════════════════════════════════════════════════════
+
+
+
+
+
+
 function saveProfile() {
   toast('✅ Profile updated!');
 }
 
-// ════════════════════════════════════════════════════
-//  SEARCH
-//  ❌ BUG N3 (UI / indexing) — Wrong index into full list
-//  Filtered results pass index i into searchNavigate, but code uses SEARCH_DATA[i]
-//  (original array), so the opened page can mismatch the clicked row.
-// ════════════════════════════════════════════════════
+
+
+
+
+
+
 function handleSearch(val) {
   const drop = document.getElementById('searchDrop');
   if (!val.trim()) { drop.classList.remove('open'); return; }
@@ -1049,8 +1031,8 @@ function handleSearch(val) {
 }
 
 function searchNavigate(idx, val) {
-  // BUG N3: idx is from filtered results array, but page lookup uses SEARCH_DATA[idx]
-  const item = SEARCH_DATA[idx]; // ← should use the filtered row, not SEARCH_DATA[idx]
+  
+  const item = SEARCH_DATA[idx]; 
   navigate(item ? item.page : 'dashboard');
   document.getElementById('globalSearch').value = val;
   toast(`🔍 Navigated to: ${item ? item.label : 'Dashboard'}`);
@@ -1060,9 +1042,9 @@ function closeSearch() {
   document.getElementById('searchDrop').classList.remove('open');
 }
 
-// ═══════════════════════════
-//  DROPDOWN MENUS
-// ═══════════════════════════
+
+
+
 function toggleUserMenu() {
   document.getElementById('userMenu').classList.toggle('open');
 }
@@ -1073,14 +1055,14 @@ function closeUserMenu() {
 document.addEventListener('click', e => {
   if (!e.target.closest('#userMenuBtn') && !e.target.closest('#userMenu')) closeUserMenu();
   if (!e.target.closest('.notif-panel') && !e.target.closest('[onclick*="toggleNotif"]')) {
-    // don't auto-close
+    
   }
 });
 
-// ═══════════════════════════
-//  NOTIFICATION PANEL
-//  ❌ BUG N4 — After “Mark all read”, count is 0 but badge dot stays visible
-// ═══════════════════════════
+
+
+
+
 function toggleNotif() {
   notifOpen = !notifOpen;
   document.getElementById('notifPanel').classList.toggle('open', notifOpen);
@@ -1099,7 +1081,7 @@ function renderNotifs() {
 
 function markRead(i) {
   NOTIFICATIONS[i].unread = false;
-  // Recalculate unread count
+  
   unreadCount = NOTIFICATIONS.filter(n => n.unread).length;
   renderNotifs();
   updateNotifBadge();
@@ -1115,16 +1097,16 @@ function markAllRead() {
 
 function updateNotifBadge() {
   const badge = document.getElementById('notifBadge');
-  // BUG N4: Should hide badge when count=0, but only sets text — red dot still shows "0"
+  
   badge.textContent = unreadCount;
 }
 
-// ═══════════════════════════
-//  MAP
-// ═══════════════════════════
-/** Main gate — path planner origin */
+
+
+
+
 const MAP_ROUTE_START = { x: 215, y: 210 };
-/** Building / POI centers (cx, cy) — keep in sync with SVG rects */
+
 const MAP_BUILDING_CENTERS = {
   main:     { cx: 100, cy: 98 },
   cs:       { cx: 440, cy: 98 },
@@ -1149,7 +1131,7 @@ function mapZoom(factor) {
   toast(`🔍 Zoom: ${Math.round(mapCurrentScale*100)}%`);
 }
 
-/** Path overlay polyline — applies gate apron row + westbound staging per traffic-office layout PDF. */
+
 function mapRoutePathD(cx, cy) {
   const { x: sx, y: sy } = MAP_ROUTE_START;
   const apronY = sy + 11;
@@ -1233,9 +1215,9 @@ function findBuilding() {
   else toast('❌ Building not found. Try: Main, CS, Library, Auditorium, Parking...');
 }
 
-// ═══════════════════════════
-//  FEES CALCULATION
-// ═══════════════════════════
+
+
+
 function updatePayTotal() {
   const amt = parseFloat(document.getElementById('payAmt').value) || 0;
   const gw  = Math.round(amt * 0.02);
@@ -1251,9 +1233,9 @@ function payFees() {
   document.getElementById('modalOk').onclick = () => { closeModal(); toast('✅ Payment of ' + total + ' successful! Receipt sent to email.'); };
 }
 
-// ═══════════════════════════
-//  MODAL
-// ═══════════════════════════
+
+
+
 function showModal(type, title, body) {
   document.getElementById('modalTitle').textContent = title || '';
   document.getElementById('modalBody').textContent  = body  || '';
@@ -1268,9 +1250,9 @@ function showModal(type, title, body) {
 }
 function closeModal() { document.getElementById('modalBg').classList.remove('open'); }
 
-// ═══════════════════════════
-//  TOAST
-// ═══════════════════════════
+
+
+
 function toast(msg) {
   const s = document.getElementById('toastStack');
   const t = document.createElement('div');
@@ -1279,9 +1261,9 @@ function toast(msg) {
   setTimeout(() => t.remove(), 2700);
 }
 
-// ═══════════════════════════
-//  PAGE RENDERERS
-// ═══════════════════════════
+
+
+
 function initPage(page) {
   if (page === 'dashboard')  initDashboard();
   if (page === 'courses')    initCourses();
@@ -1292,7 +1274,7 @@ function initPage(page) {
 }
 
 function initDashboard() {
-  // Today's classes
+  
   const today = ['CS401','MA401','PH401','CS402','CS403'];
   const times  = ['9:00 AM','10:00 AM','11:15 AM','1:00 PM','2:00 PM'];
   document.getElementById('todayClasses').innerHTML = today.map((c,i) => {
@@ -1394,9 +1376,9 @@ function initFees() {
   `).join('');
 }
 
-// ═══════════════════════════
-//  INIT APP
-// ═══════════════════════════
+
+
+
 (function init() {
   initDashboard();
   initTimetable();
