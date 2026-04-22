@@ -68,6 +68,13 @@ export default function App() {
 
   const navigate = useCallback(
     (page) => {
+      if (page === currentPage) {
+        if (mainRef.current) mainRef.current.scrollTo(0, 0);
+        setSearchDropOpen(false);
+        setGlobalSearch('');
+        if (notifOpen) setNotifOpen(false);
+        return;
+      }
       setCurrentPage(page);
       updateBreadcrumb(page);
       if (mainRef.current) mainRef.current.scrollTo(0, 0);
@@ -75,7 +82,7 @@ export default function App() {
       setGlobalSearch('');
       if (notifOpen) setNotifOpen(false);
     },
-    [notifOpen, updateBreadcrumb]
+    [notifOpen, updateBreadcrumb, currentPage]
   );
 
   useEffect(() => {
@@ -296,7 +303,8 @@ export default function App() {
               📅
             </div>
             <div className="tb-icon" onClick={toggleNotif} title="Notifications">
-              🔔 <span className="tb-badge">{unreadCount}</span>
+              🔔{' '}
+              {unreadCount > 0 ? <span className="tb-badge">{unreadCount}</span> : null}
             </div>
             <div className="dropdown">
               <div className="tb-user" onClick={() => setUserMenuOpen((o) => !o)} id="userMenuBtn">
@@ -654,7 +662,7 @@ export default function App() {
                   <h1>Library</h1>
                   <p>Browse, borrow and renew books</p>
                 </div>
-                <button type="button" className="btn btn-gold btn-sm" onClick={() => navigate('library')}>
+                <button type="button" className="btn btn-gold btn-sm" onClick={() => toast('🔍 Opening library catalogue…')}>
                   🔍 Search Catalogue
                 </button>
               </div>

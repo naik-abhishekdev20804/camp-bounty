@@ -500,7 +500,7 @@ tbody tr:hover{background:var(--snow);}
       <div class="page" id="page-library">
         <div class="page-hd page-hd-row">
           <div><h1>Library</h1><p>Browse, borrow and renew books</p></div>
-          <button class="btn btn-gold btn-sm" onclick="navigate('library')">🔍 Search Catalogue</button>
+          <button class="btn btn-gold btn-sm" onclick="toast('🔍 Opening library catalogue…')">🔍 Search Catalogue</button>
         </div>
         <div class="tabs" id="libTabs">
           <button class="tab active" onclick="switchTab('libTabs','lib-issued',this)">Issued Books</button>
@@ -923,7 +923,13 @@ let unreadCount = 4;
 
 
 function navigate(page, subnavBtn, sidebarBtn) {
-  
+  if (page === currentPage) {
+    document.getElementById('mainContent').scrollTo(0, 0);
+    closeSearch();
+    if (notifOpen) toggleNotif();
+    return;
+  }
+
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
 
@@ -1097,8 +1103,8 @@ function markAllRead() {
 
 function updateNotifBadge() {
   const badge = document.getElementById('notifBadge');
-  
-  badge.textContent = unreadCount;
+  badge.textContent = unreadCount > 0 ? unreadCount : '';
+  badge.style.display = unreadCount > 0 ? 'flex' : 'none';
 }
 
 
