@@ -8,7 +8,7 @@ This is a small **student portal demo** used for a bug‑bounty style exercise. 
 
 ---
 
-## The six bugs (describe these in simple words for participants)
+## The seven bugs (describe these in simple words for participants)
 
 1. **Profile does not really update**  
    On **My Profile**, after you change your name, email, phone, or address and click **Save Changes**, the app may show a success message, but your changes are **not actually applied** to what you see on the screen (the header and profile still show the old details).
@@ -16,8 +16,8 @@ This is a small **student portal demo** used for a bug‑bounty style exercise. 
 2. **Breadcrumb keeps growing**  
    The line under the top bar (Home › …) **stacks up** as you open different pages. It does not stay as a short “where you are now” path; it can get **longer and longer** the more you navigate (until you go back to **Home** / Dashboard, which clears it).
 
-3. **Search opens the wrong place**  
-   The **search box** at the top filters results, but when you **click a result**, the app uses the **wrong item** from the list. So you may pick one course or page and land on **something else**.
+3. **Search routes to the wrong section**  
+   The **search box** at the top shows sensible results, but when you **pick one**, the app sends you to the **wrong area** of the site on purpose. For example, a building or **Campus Map**–related result may open **Fees**, and a **Pay Fees** result may open the **map**; similar **swapped** routing applies to other result types (courses, timetable, results, library, profile, etc.).
 
 4. **Notifications**  
    The **notification panel** does not follow what users usually expect. For example, **clicking outside the panel does not close it** (you have to use the bell again), and the overall behaviour may feel off compared to a normal app.
@@ -27,6 +27,9 @@ This is a small **student portal demo** used for a bug‑bounty style exercise. 
 
 6. **Back button**  
    The **← Back** button in the bar below the top navigation is **not a real back**: it always sends you to **My Profile** instead of the **previous** page you were on.
+
+7. **“View schedule” goes to the wrong page**  
+   On the **Dashboard**, the line **“Exam Schedule Released … View schedule →”** looks like it should open an **exam timetable** or exam dates. Instead, it takes you to **Results & Grades**, which is **not** a dedicated end‑semester **exam schedule** view.
 
 ---
 
@@ -75,5 +78,5 @@ The image contains **only** the built `dist` output, the `server` folder, and pr
 
 ## For organizers
 
-- Submissions that report issues **other than the six above** should be **discarded** or marked invalid, to keep scoring fair.
+- Submissions that report issues **other than the seven above** should be **discarded** or marked invalid, to keep scoring fair.
 - If you need a “clean room” for judging, use only the **deployed URL** to the `npm start` / Docker app—not a checkout of the full git repo in front of participants.

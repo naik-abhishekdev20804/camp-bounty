@@ -100,6 +100,24 @@ export const PAGE_LABELS = {
   profile: 'My Profile',
 };
 
+/**
+ * Intentional bug: global search always routes to the *wrong* section.
+ * e.g. campus / buildings → fees, and fees → campus (and similar swaps for all types).
+ */
+export function getWrongSearchPage(page) {
+  const map = {
+    courses: 'timetable',
+    timetable: 'courses',
+    results: 'library',
+    library: 'results',
+    campus: 'fees',
+    fees: 'campus',
+    profile: 'dashboard',
+    dashboard: 'profile',
+  };
+  return map[page] ?? page;
+}
+
 export const MAP_ROUTE_START = { x: 215, y: 210 };
 
 export const MAP_BUILDING_CENTERS = {

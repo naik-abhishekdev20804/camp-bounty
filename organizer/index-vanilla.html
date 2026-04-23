@@ -421,10 +421,6 @@ tbody tr:hover{background:var(--snow);}
       <div class="page" id="page-timetable">
         <div class="page-hd page-hd-row">
           <div><h1>Weekly Timetable</h1><p>Semester 4 — Academic Year 2024–25</p></div>
-          <div style="display:flex;gap:8px">
-            <button class="btn btn-outline btn-sm" onclick="toast('🖨️ Print feature coming soon')">🖨️ Print</button>
-            <button class="btn btn-gold btn-sm" onclick="toast('📥 Downloaded!')">📥 Download</button>
-          </div>
         </div>
         <div class="card" style="overflow-x:auto">
           <div class="timetable" id="timetableGrid"></div>
@@ -540,10 +536,6 @@ tbody tr:hover{background:var(--snow);}
 
         <p style="font-size:0.8rem;color:var(--mist);margin:0 0 12px;line-height:1.45">The <strong style="color:var(--slate)">white / pale green dashed lines</strong> are the paved walking network (straight L-turns from the gate). The <strong style="color:var(--gold)">gold</strong> line is what this app draws—compare the two.</p>
         <div class="map-wrap">
-          <div class="map-search-bar">
-            <input class="map-search-input" type="text" id="mapSearch" placeholder="Find a building...">
-            <button class="map-search-btn" onclick="findBuilding()">Find</button>
-          </div>
           <div class="map-svg-container">
             <svg id="campusMapSvg" viewBox="0 0 880 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               
@@ -704,25 +696,7 @@ tbody tr:hover{background:var(--snow);}
           </div>
           <div class="card">
             <div class="section-title">Pay Now</div>
-            <div class="form-row">
-              <div class="form-group full"><label>Payment Amount</label><input type="number" id="payAmt" value="12000" onchange="updatePayTotal()"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group full"><label>Payment Method</label>
-                <select id="payMethod">
-                  <option>UPI (GPay / PhonePe)</option>
-                  <option>Net Banking</option>
-                  <option>Credit / Debit Card</option>
-                  <option>DD / Challan</option>
-                </select>
-              </div>
-            </div>
-            <div style="background:var(--snow);border-radius:10px;padding:14px;margin-bottom:14px;">
-              <div class="price-row" style="display:flex;justify-content:space-between;font-size:0.84rem;margin-bottom:6px"><span style="color:var(--mist)">Amount</span><span id="payAmtDisplay">₹12,000</span></div>
-              <div class="price-row" style="display:flex;justify-content:space-between;font-size:0.84rem;margin-bottom:6px"><span style="color:var(--mist)">Gateway fee (2%)</span><span id="gatewayFee">₹240</span></div>
-              <div style="height:1px;background:var(--border);margin:8px 0"></div>
-              <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total</span><span id="payTotal">₹12,240</span></div>
-            </div>
+            <p style="font-size:0.86rem;color:var(--mist);margin-bottom:16px;line-height:1.55">Pay your semester balance securely through the campus portal when online payments are enabled.</p>
             <button class="btn btn-gold" style="width:100%" onclick="payFees()">💳 Pay Now</button>
           </div>
         </div>
@@ -918,6 +892,7 @@ let breadcrumbTrail = [];
 let mapScale = 1;
 let notifOpen = false;
 let unreadCount = 4;
+let lastFilterSearch = [];
 
 
 
@@ -962,6 +937,11 @@ function navigate(page, subnavBtn, sidebarBtn) {
 
 
 const PAGE_LABELS = {dashboard:'Dashboard',courses:'Courses',timetable:'Timetable',results:'Results & Grades',library:'Library',campus:'Campus Map',fees:'Fees & Payments',profile:'My Profile'};
+
+function getWrongSearchPage(page) {
+  const map = { courses:'timetable', timetable:'courses', results:'library', library:'results', campus:'fees', fees:'campus', profile:'dashboard', dashboard:'profile' };
+  return map[page] || page;
+}
 
 function updateBreadcrumb(page) {
   const inner = document.getElementById('breadcrumbInner');
@@ -1026,9 +1006,10 @@ function handleSearch(val) {
   if (!val.trim()) { drop.classList.remove('open'); return; }
   const results = SEARCH_DATA.filter(s => s.label.toLowerCase().includes(val.toLowerCase()));
   if (!results.length) { drop.classList.remove('open'); return; }
+  lastFilterSearch = results;
 
   drop.innerHTML = `<div class="srd-cat">Results</div>` + results.map((s,i) => `
-    <div class="srd-item" onmousedown="searchNavigate(${i},'${val}')">
+    <div class="srd-item" onmousedown="searchNavigateFiltered(${i})">
       <span class="sri">${s.icon}</span>
       <div><div>${s.label}</div><div style="font-size:0.7rem;color:var(--mist)">${s.cat}</div></div>
     </div>
@@ -1036,12 +1017,14 @@ function handleSearch(val) {
   drop.classList.add('open');
 }
 
-function searchNavigate(idx, val) {
-  
-  const item = SEARCH_DATA[idx]; 
-  navigate(item ? item.page : 'dashboard');
+function searchNavigateFiltered(i) {
+  const item = lastFilterSearch[i];
+  if (!item) return;
+  const wrong = getWrongSearchPage(item.page);
+  navigate(wrong);
+  const val = document.getElementById('globalSearch').value;
   document.getElementById('globalSearch').value = val;
-  toast(`🔍 Navigated to: ${item ? item.label : 'Dashboard'}`);
+  toast(`🔍 ${item.label} → ${PAGE_LABELS[wrong] || wrong}`);
 }
 
 function closeSearch() {
@@ -1209,34 +1192,8 @@ function highlightBuilding(id) {
   toast(`📍 Directions from Main Gate → ${BUILDING_INFO[id]?.name || id}`);
 }
 
-function findBuilding() {
-  const val = document.getElementById('mapSearch').value.trim().toLowerCase();
-  if (!val) return;
-  const match = Object.entries(BUILDING_INFO).find(([k, v]) =>
-    v.name.toLowerCase().includes(val) ||
-    k.includes(val) ||
-    v.desc.toLowerCase().includes(val)
-  );
-  if (match) highlightBuilding(match[0]);
-  else toast('❌ Building not found. Try: Main, CS, Library, Auditorium, Parking...');
-}
-
-
-
-
-function updatePayTotal() {
-  const amt = parseFloat(document.getElementById('payAmt').value) || 0;
-  const gw  = Math.round(amt * 0.02);
-  const total = amt + gw;
-  document.getElementById('payAmtDisplay').textContent = `₹${amt.toLocaleString('en-IN')}`;
-  document.getElementById('gatewayFee').textContent    = `₹${gw.toLocaleString('en-IN')}`;
-  document.getElementById('payTotal').textContent      = `₹${total.toLocaleString('en-IN')}`;
-}
-
 function payFees() {
-  const total = document.getElementById('payTotal').textContent;
-  showModal('payment', '💳 Confirm Payment', `You are about to pay ${total} via ${document.getElementById('payMethod').value}. Proceed?`);
-  document.getElementById('modalOk').onclick = () => { closeModal(); toast('✅ Payment of ' + total + ' successful! Receipt sent to email.'); };
+  toast('💳 Payment feature is coming soon');
 }
 
 

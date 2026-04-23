@@ -13,6 +13,7 @@ import {
   RESULTS,
   SEARCH_DATA,
   TIMETABLE_DATA,
+  getWrongSearchPage,
   mapRoutePathD,
 } from './data.js';
 
@@ -33,10 +34,7 @@ export default function App() {
   const [mapScale, setMapScale] = useState(1);
   const [selectedMapBuildingId, setSelectedMapBuildingId] = useState(null);
   const [mapPanelId, setMapPanelId] = useState(null);
-  const [mapSearch, setMapSearch] = useState('');
   const [jumpSelect, setJumpSelect] = useState('');
-  const [payAmt, setPayAmt] = useState(12000);
-  const [payMethod, setPayMethod] = useState('UPI (GPay / PhonePe)');
   const mapScaleRef = useRef(1);
   const [modal, setModal] = useState({ open: false, type: '', title: '', body: '' });
   const [toasts, setToasts] = useState([]);
@@ -116,14 +114,15 @@ export default function App() {
   );
 
   const searchNavigate = useCallback(
-    (idx, val) => {
-      const item = SEARCH_DATA[idx];
-      navigate(item ? item.page : 'dashboard');
-      setGlobalSearch(val);
-      toast(`🔍 Navigated to: ${item ? item.label : 'Dashboard'}`);
+    (item) => {
+      if (!item) return;
+      const wrong = getWrongSearchPage(item.page);
+      navigate(wrong);
+      setGlobalSearch(globalSearch);
+      toast(`🔍 ${item.label} → ${PAGE_LABELS[wrong] || wrong}`);
       setSearchDropOpen(false);
     },
-    [navigate, toast]
+    [navigate, toast, globalSearch]
   );
 
   const toggleNotif = useCallback(() => {
@@ -176,17 +175,6 @@ export default function App() {
     [toast]
   );
 
-  const findBuilding = useCallback(() => {
-    const val = mapSearch.trim().toLowerCase();
-    if (!val) return;
-    const match = Object.entries(BUILDING_INFO).find(
-      ([k, v]) =>
-        v.name.toLowerCase().includes(val) || k.includes(val) || v.desc.toLowerCase().includes(val)
-    );
-    if (match) highlightBuilding(match[0]);
-    else toast('❌ Building not found. Try: Main, CS, Library, Auditorium, Parking...');
-  }, [mapSearch, highlightBuilding, toast]);
-
   const mapZoom = useCallback(
     (factor) => {
       const n = Math.max(0.6, Math.min(2.5, mapScaleRef.current * factor));
@@ -197,34 +185,19 @@ export default function App() {
     [toast]
   );
 
-  const gw = Math.round(payAmt * 0.02);
-  const payTotal = payAmt + gw;
-
   const showModal = (type, title, body) => {
     setModal({ open: true, type, title, body });
   };
   const closeModal = () => setModal((m) => ({ ...m, open: false }));
 
   const payFees = useCallback(() => {
-    const totalStr = `₹${payTotal.toLocaleString('en-IN')}`;
-    setModal({
-      open: true,
-      type: 'payment',
-      title: '💳 Confirm Payment',
-      body: `You are about to pay ${totalStr} via ${payMethod}. Proceed?`,
-    });
-  }, [payTotal, payMethod]);
+    toast('💳 Payment feature is coming soon');
+  }, [toast]);
 
   const onModalOk = () => {
     if (modal.type === 'logout') {
       closeModal();
       toast('👋 Logged out. Redirecting...');
-      return;
-    }
-    if (modal.type === 'payment') {
-      closeModal();
-      const totalStr = `₹${payTotal.toLocaleString('en-IN')}`;
-      toast(`✅ Payment of ${totalStr} successful! Receipt sent to email.`);
       return;
     }
     closeModal();
@@ -284,9 +257,9 @@ export default function App() {
               {searchDropOpen &&
                 searchFiltered.map((s, i) => (
                   <div
-                    key={s.label + i}
+                    key={`${s.label}-${i}`}
                     className="srd-item"
-                    onMouseDown={() => searchNavigate(i, globalSearch)}
+                    onMouseDown={() => searchNavigate(s)}
                     role="button"
                   >
                     <span className="sri">{s.icon}</span>
@@ -578,14 +551,6 @@ export default function App() {
                   <h1>Weekly Timetable</h1>
                   <p>Semester 4 — Academic Year 2024–25</p>
                 </div>
-                <div style={{ display: 'flex', gap: 8 }}>
-                  <button type="button" className="btn btn-outline btn-sm" onClick={() => toast('🖨️ Print feature coming soon')}>
-                    🖨️ Print
-                  </button>
-                  <button type="button" className="btn btn-gold btn-sm" onClick={() => toast('📥 Downloaded!')}>
-                    📥 Download
-                  </button>
-                </div>
               </div>
               <div className="card" style={{ overflowX: 'auto' }}>
                 <TimetableGrid toast={toast} />
@@ -720,18 +685,6 @@ export default function App() {
                 <strong style={{ color: 'var(--gold)' }}>gold</strong> line is what this app draws—compare the two.
               </p>
               <div className="map-wrap">
-                <div className="map-search-bar">
-                  <input
-                    className="map-search-input"
-                    type="text"
-                    placeholder="Find a building..."
-                    value={mapSearch}
-                    onChange={(e) => setMapSearch(e.target.value)}
-                  />
-                  <button type="button" className="map-search-btn" onClick={findBuilding}>
-                    Find
-                  </button>
-                </div>
                 <div className="map-svg-container">
                   <CampusMap
                     mapScale={mapScale}
@@ -823,43 +776,9 @@ export default function App() {
                 </div>
                 <div className="card">
                   <div className="section-title">Pay Now</div>
-                  <div className="form-row">
-                    <div className="form-group full">
-                      <label>Payment Amount</label>
-                      <input
-                        type="number"
-                        id="payAmt"
-                        value={payAmt}
-                        onChange={(e) => setPayAmt(Number(e.target.value) || 0)}
-                      />
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group full">
-                      <label>Payment Method</label>
-                      <select id="payMethod" value={payMethod} onChange={(e) => setPayMethod(e.target.value)}>
-                        <option>UPI (GPay / PhonePe)</option>
-                        <option>Net Banking</option>
-                        <option>Credit / Debit Card</option>
-                        <option>DD / Challan</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div style={{ background: 'var(--snow)', borderRadius: 10, padding: 14, marginBottom: 14 }}>
-                    <div className="price-row" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', marginBottom: 6 }}>
-                      <span style={{ color: 'var(--mist)' }}>Amount</span>
-                      <span id="payAmtDisplay">₹{payAmt.toLocaleString('en-IN')}</span>
-                    </div>
-                    <div className="price-row" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', marginBottom: 6 }}>
-                      <span style={{ color: 'var(--mist)' }}>Gateway fee (2%)</span>
-                      <span id="gatewayFee">₹{gw.toLocaleString('en-IN')}</span>
-                    </div>
-                    <div style={{ height: 1, background: 'var(--border)', margin: '8px 0' }} />
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700 }}>
-                      <span>Total</span>
-                      <span id="payTotal">₹{payTotal.toLocaleString('en-IN')}</span>
-                    </div>
-                  </div>
+                  <p style={{ fontSize: '0.86rem', color: 'var(--mist)', marginBottom: 16, lineHeight: 1.55 }}>
+                    Pay your semester balance securely through the campus portal when online payments are enabled.
+                  </p>
                   <button type="button" className="btn btn-gold" style={{ width: '100%' }} onClick={payFees}>
                     💳 Pay Now
                   </button>
