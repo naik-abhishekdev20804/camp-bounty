@@ -23,7 +23,7 @@ This is a small **student portal demo** used for a bug‑bounty style exercise. 
    The **notification panel** does not follow what users usually expect. For example, **clicking outside the panel does not close it** (you have to use the bell again), and the overall behaviour may feel off compared to a normal app.
 
 5. **Map navigation / route**  
-   On the **Campus Map**, the **highlighted “gold” route** from the main gate to a building does **not** follow the same path as the **dashed walking paths** on the map, so the drawn directions can be **wrong or odd** (the UI even hints that the in‑app line may “detour”).
+   On the **Campus Map**, for all the places it is not showing the direction from currnt location to destination , but each time it is considering gate as current location
 
 6. **Back button**  
    The **← Back** button in the bar below the top navigation is **not a real back**: it always sends you to **My Profile** instead of the **previous** page you were on.
