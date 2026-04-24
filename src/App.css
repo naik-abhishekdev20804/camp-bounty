@@ -206,6 +206,8 @@ tbody tr:hover{background:var(--snow);}
 
 .notif-panel{position:fixed;top:56px;right:0;width:320px;height:calc(100vh - 56px);background:var(--white);border-left:1px solid var(--border);z-index:150;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-4px 0 24px rgba(0,0,0,0.1);}
 .notif-panel.open{transform:translateX(0);}
+.notif-overlay{position:fixed;top:56px;left:0;right:0;bottom:0;background:rgba(0,0,0,0.1);z-index:149;opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease;}
+.notif-overlay.open{opacity:1;visibility:visible;}
 .notif-hd{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--snow);}
 .notif-hd h3{font-size:0.95rem;font-weight:700;}
 .notif-list{flex:1;overflow-y:auto;padding:12px;}

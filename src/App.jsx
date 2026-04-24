@@ -22,6 +22,7 @@ function cloneNotifications() {
 }
 
 export default function App() {
+  const notifPanelRef = useRef(null);
   const mainRef = useRef(null);
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [breadcrumbTrail, setBreadcrumbTrail] = useState(['dashboard']);
@@ -89,11 +90,33 @@ export default function App() {
 
   useEffect(() => {
     const onDoc = (e) => {
+      // Close user menu when clicking outside
       if (!e.target.closest('#userMenuBtn') && !e.target.closest('#userMenu')) setUserMenuOpen(false);
+      
+      // Close notification panel when clicking outside
+      if (!e.target.closest('#notifBtn') && !e.target.closest('#notifPanel')) {
+        setNotifOpen(false);
+      }
     };
+    
+    const onKeyDown = (e) => {
+      // Close notification panel on Escape key
+      if (e.key === 'Escape' && notifOpen) {
+        setNotifOpen(false);
+      }
+      // Close user menu on Escape key
+      if (e.key === 'Escape' && userMenuOpen) {
+        setUserMenuOpen(false);
+      }
+    };
+    
     document.addEventListener('click', onDoc);
-    return () => document.removeEventListener('click', onDoc);
-  }, []);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('click', onDoc);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [notifOpen, userMenuOpen]);
 
   const handleSearch = useCallback(
     (val) => {
@@ -126,7 +149,14 @@ export default function App() {
   );
 
   const toggleNotif = useCallback(() => {
-    setNotifOpen((o) => !o);
+    setNotifOpen((o) => {
+      const newState = !o;
+      // Focus the notification panel when it opens
+      if (newState && notifPanelRef.current) {
+        setTimeout(() => notifPanelRef.current.focus(), 100);
+      }
+      return newState;
+    });
   }, []);
 
   const markRead = useCallback(
@@ -275,7 +305,7 @@ export default function App() {
             <div className="tb-icon" onClick={() => navigate('timetable')} title="Timetable">
               📅
             </div>
-            <div className="tb-icon" onClick={toggleNotif} title="Notifications">
+            <div className="tb-icon" onClick={toggleNotif} title="Notifications" id="notifBtn">
               🔔{' '}
               {unreadCount > 0 ? <span className="tb-badge">{unreadCount}</span> : null}
             </div>
@@ -950,12 +980,25 @@ export default function App() {
         </div>
       </div>
 
+      <div className={`notif-overlay ${notifOpen ? 'open' : ''}`} onClick={() => setNotifOpen(false)} />
+      
       <div className={`notif-panel ${notifOpen ? 'open' : ''}`} id="notifPanel">
         <div className="notif-hd">
           <h3>Notifications</h3>
-          <button type="button" className="btn btn-outline btn-sm" onClick={markAllRead}>
-            Mark all read
-          </button>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <button type="button" className="btn btn-outline btn-sm" onClick={markAllRead}>
+              Mark all read
+            </button>
+            <button 
+              type="button" 
+              className="btn btn-outline btn-sm" 
+              onClick={() => setNotifOpen(false)}
+              title="Close notifications"
+              style={{ padding: '4px 8px', minWidth: 'auto' }}
+            >
+              ✕
+            </button>
+          </div>
         </div>
         <div className="notif-list" id="notifList">
           {notifications.map((n, i) => (
